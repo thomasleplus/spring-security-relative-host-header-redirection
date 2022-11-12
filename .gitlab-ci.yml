@@ -1,0 +1,69 @@
+# You can override the included template(s) by including variable overrides
+# SAST customization: https://docs.gitlab.com/ee/user/application_security/sast/#customizing-the-sast-settings
+# Secret Detection customization: https://docs.gitlab.com/ee/user/application_security/secret_detection/#customizing-settings
+# Dependency Scanning customization: https://docs.gitlab.com/ee/user/application_security/dependency_scanning/#customizing-the-dependency-scanning-settings
+# Container Scanning customization: https://docs.gitlab.com/ee/user/application_security/container_scanning/#customizing-the-container-scanning-settings
+# Note that environment variables can be set in several places
+# See https://docs.gitlab.com/ee/ci/variables/#cicd-variable-precedence
+stages:
+- lint
+- test
+variables:
+  MAVEN_CLI_OPTS: "--batch-mode --errors --fail-at-end --show-version -DinstallAtEnd=true
+    -DdeployAtEnd=true\n"
+cache:
+  paths:
+  - ".m2/repository"
+super linter:
+  image:
+    name: github/super-linter:latest
+    entrypoint:
+    - ''
+  stage: lint
+  variables:
+    FILTER_REGEX_EXCLUDE: "(\\.aws/.*|gradlew|gradlew\\.bat|gradle/.*|mvnw|mvnw\\.cmd|\\.mvn/.*)"
+    RUN_LOCAL: 'true'
+  before_script:
+  - ln -s "$(pwd)" /tmp/lint
+  script:
+  - "/action/lib/linter.sh"
+  timeout: 10 minutes
+versions:
+  image:
+    name: maven:3-openjdk-8
+  stage: lint
+  script: "./maven-dependency-check.sh"
+  timeout: 10 minutes
+verify:openjdk8:
+  stage: test
+  image: maven:3-openjdk-8
+  script:
+  - "./mvnw $MAVEN_CLI_OPTS verify"
+  only:
+  - master
+verify:openjdk11:
+  stage: test
+  image: maven:3-openjdk-11
+  script:
+  - "./mvnw $MAVEN_CLI_OPTS verify"
+  only:
+  - master
+verify:openjdk17:
+  stage: test
+  image: maven:3-openjdk-17
+  script:
+  - "./mvnw $MAVEN_CLI_OPTS verify"
+  only:
+  - master
+verify:openjdk19:
+  stage: test
+  image: maven:3-openjdk-19
+  script:
+  - "./mvnw $MAVEN_CLI_OPTS verify"
+  only:
+  - master
+include:
+- template: Security/Secret-Detection.gitlab-ci.yml
+- template: Security/SAST.gitlab-ci.yml
+sast:
+  stage: test
