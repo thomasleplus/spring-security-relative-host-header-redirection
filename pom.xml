@@ -15,16 +15,6 @@
     </license>
   </licenses>
   <distributionManagement>
-    <snapshotRepository>
-      <id>ossrh</id>
-      <name>Central Repository OSSRH</name>
-      <url>https://oss.sonatype.org/content/repositories/snapshots</url>
-    </snapshotRepository>
-    <repository>
-      <id>ossrh</id>
-      <name>Central Repository OSSRH</name>
-      <url>https://oss.sonatype.org/service/local/staging/deploy/maven2/</url>
-    </repository>
     <site>
       <id>github</id>
       <url>scm:git:https://github.com/thomasleplus/spring-security-relative-host-header-redirection.git</url>
@@ -58,9 +48,6 @@
   </developers>
   <properties>
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-    <sonar.projectKey>thomasleplus_spring-security-relative-host-header-redirection</sonar.projectKey>
-    <sonar.organization>thomasleplus-github</sonar.organization>
-    <sonar.host.url>https://sonarcloud.io</sonar.host.url>
   </properties>
   <dependencies>
     <dependency>
