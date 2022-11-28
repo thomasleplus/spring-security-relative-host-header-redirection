@@ -30,6 +30,9 @@ cache:
 sast:
   stage: check
 
+secret_detection:
+  stage: check
+
 super linter:
   image:
     name: github/super-linter:latest
