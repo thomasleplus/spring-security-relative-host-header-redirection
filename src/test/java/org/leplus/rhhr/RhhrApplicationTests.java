@@ -6,10 +6,10 @@ import org.apache.http.impl.client.CloseableHttpClient;
 import org.apache.http.impl.client.HttpClientBuilder;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.boot.test.context.SpringBootTest.WebEnvironment;
 import org.springframework.boot.test.web.client.TestRestTemplate;
-import org.springframework.boot.web.server.LocalServerPort;
 import org.springframework.context.annotation.Bean;
 import org.springframework.http.client.HttpComponentsClientHttpRequestFactory;
 import org.springframework.web.client.RestTemplate;
@@ -17,7 +17,7 @@ import org.springframework.web.client.RestTemplate;
 @SpringBootTest(webEnvironment = WebEnvironment.RANDOM_PORT)
 public class RhhrApplicationTests {
 
-    @LocalServerPort
+    @Value("${server.port}")
     private int port;
 
     @Autowired
@@ -26,10 +26,10 @@ public class RhhrApplicationTests {
     @Bean
     public RestTemplate restTemplate() {
         final RestTemplate restTemplate = new RestTemplate();
-        final HttpComponentsClientHttpRequestFactory factory = new HttpComponentsClientHttpRequestFactory();
-        final CloseableHttpClient build = HttpClientBuilder.create()
-                .disableRedirectHandling().build();
-        factory.setHttpClient(build);
+        final HttpComponentsClientHttpRequestFactory factory =
+                new HttpComponentsClientHttpRequestFactory();
+        factory.setHttpClient(HttpClientBuilder.create()
+                .disableRedirectHandling().build());
         restTemplate.setRequestFactory(factory);
         return restTemplate;
     }
