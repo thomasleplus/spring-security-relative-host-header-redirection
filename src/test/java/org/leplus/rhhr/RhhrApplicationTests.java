@@ -5,7 +5,6 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 import org.apache.hc.client5.http.impl.classic.HttpClientBuilder;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.beans.factory.annotation.Value;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.boot.test.context.SpringBootTest.WebEnvironment;
 import org.springframework.boot.test.web.client.TestRestTemplate;
@@ -13,11 +12,8 @@ import org.springframework.context.annotation.Bean;
 import org.springframework.http.client.HttpComponentsClientHttpRequestFactory;
 import org.springframework.web.client.RestTemplate;
 
-@SpringBootTest(webEnvironment = WebEnvironment.RANDOM_PORT)
+@SpringBootTest(webEnvironment = WebEnvironment.DEFINED_PORT)
 public class RhhrApplicationTests {
-
-    @Value("${server.port}")
-    private int port;
 
     @Autowired
     private TestRestTemplate restTemplate;
@@ -36,7 +32,7 @@ public class RhhrApplicationTests {
     @Test
     public void testRedirection() throws Exception {
         assertEquals("/login", restTemplate
-                .getForEntity("http://localhost:" + port + "/", String.class)
+                .getForEntity("http://localhost:8080/", String.class)
                 .getHeaders().getLocation().toString());
     }
 
