@@ -25,7 +25,7 @@ variables:
 
 cache:
   paths:
-    - ".m2/repository"
+    - .m2/repository
 
 sast:
   stage: check
@@ -40,9 +40,9 @@ super linter:
       - ''
   stage: check
   variables:
-    VALIDATE_ALL_CODEBASE: 'true'
-    FILTER_REGEX_EXCLUDE: '(.aws/*|gradlew|gradlew.bat|gradle/*|mvnw|mvnw.cmd|.mvn/*);
     RUN_LOCAL: 'true'
+    VALIDATE_ALL_CODEBASE: 'true'
+    FILTER_REGEX_EXCLUDE: '(.aws/*|gradlew|gradlew.bat|gradle/*|mvnw|mvnw.cmd|.mvn/*)'
   before_script:
     - 'ln -s "$(pwd)" /tmp/lint'
   script:
