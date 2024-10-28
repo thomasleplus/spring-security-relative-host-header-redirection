@@ -11,11 +11,13 @@ public class SecurityConfig extends AbstractHttpConfigurer<SecurityConfig, HttpS
 
     @Bean
     public SecurityFilterChain filterChain(HttpSecurity http) throws Exception {
-        http.authorizeHttpRequests((authz) -> authz
+        http.authorizeHttpRequests(authz -> authz
                 .anyRequest().authenticated()
             )
-            .formLogin()
-            .loginPage("/login");
+            .formLogin(formLogin -> formLogin
+                .loginPage("/login")
+                .permitAll()
+           );
         return http.getOrBuild();
     }
 
