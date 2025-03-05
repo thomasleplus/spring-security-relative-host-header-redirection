@@ -12,12 +12,30 @@ import org.springframework.context.annotation.Bean;
 import org.springframework.http.client.HttpComponentsClientHttpRequestFactory;
 import org.springframework.web.client.RestTemplate;
 
+/**
+ * Tests the RhhrApplication.
+ */
 @SpringBootTest(webEnvironment = WebEnvironment.DEFINED_PORT)
 public class RhhrApplicationTests {
 
+    /**
+     * The default constructor.
+     */
+    public RhhrApplicationTests() {
+        super();
+    }
+
+    /**
+     * The rest template.
+     */
     @Autowired
     private TestRestTemplate restTemplate;
 
+    /**
+     * Configures the rest template.
+     *
+     * @return the configured rest template.
+     */
     @Bean
     public RestTemplate restTemplate() {
         final RestTemplate restTemplate = new RestTemplate();
@@ -29,6 +47,11 @@ public class RhhrApplicationTests {
         return restTemplate;
     }
 
+    /**
+     * Tests the redirection.
+     *
+     * @throws Exception if the test fails.
+     */
     @Test
     public void testRedirection() throws Exception {
         assertEquals("/login", restTemplate
