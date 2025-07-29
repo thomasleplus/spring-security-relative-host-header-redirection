@@ -8,7 +8,8 @@ updates:
     cooldown:
       default-days: 7
     commit-message:
-      prefix: dev(ci-deps)
+      prefix: chore(deps)
+      prefix-development: dev(ci-deps)
   - package-ecosystem: "github-actions"
     directory: "/"
     schedule:
