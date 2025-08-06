@@ -169,6 +169,39 @@
           </execution>
         </executions>
       </plugin>
-   </plugins>
+      <plugin>
+        <groupId>org.codehaus.mojo</groupId>
+        <artifactId>versions-maven-plugin</artifactId>
+        <version>2.18.0</version>
+        <configuration>
+          <ruleSet>
+            <rule>
+              <groupId>biz.*</groupId>
+              <ignoreVersions>
+                <ignoreVersion type="regex">.*</ignoreVersion>
+              </ignoreVersions>
+            </rule>
+            <rule>
+              <groupId>co.*</groupId>
+              <ignoreVersions>
+                <ignoreVersion type="regex">.*</ignoreVersion>
+              </ignoreVersions>
+            </rule>
+            <rule>
+              <groupId>com.*</groupId>
+              <ignoreVersions>
+                <ignoreVersion type="regex">.*</ignoreVersion>
+              </ignoreVersions>
+            </rule>
+            <rule>
+              <groupId>io.*</groupId>
+              <ignoreVersions>
+                <ignoreVersion type="regex">.*</ignoreVersion>
+              </ignoreVersions>
+            </rule>
+          </ruleSet>
+        </configuration>
+      </plugin>
+    </plugins>
   </build>
 </project>
