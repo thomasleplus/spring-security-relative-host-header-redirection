@@ -204,6 +204,15 @@
                 </ignoreVersions>
               </rule>
               <rule>
+                <groupId>commons-codec</groupId>
+                <ignoreVersions>
+                  <ignoreVersion>
+                    <type>regex</type>
+                    <version>.*</version>
+                  </ignoreVersion>
+                </ignoreVersions>
+              </rule>
+              <rule>
                 <groupId>io.*</groupId>
                 <ignoreVersions>
                   <ignoreVersion>
@@ -223,6 +232,60 @@
               </rule>
               <rule>
                 <groupId>net.*</groupId>
+                <ignoreVersions>
+                  <ignoreVersion>
+                    <type>regex</type>
+                    <version>.*</version>
+                  </ignoreVersion>
+                </ignoreVersions>
+              </rule>
+              <rule>
+                <groupId>org.apache.*</groupId>
+                <ignoreVersions>
+                  <ignoreVersion>
+                    <type>regex</type>
+                    <version>.*</version>
+                  </ignoreVersion>
+                </ignoreVersions>
+              </rule>
+              <rule>
+                <groupId>org.eclipse.*</groupId>
+                <ignoreVersions>
+                  <ignoreVersion>
+                    <type>regex</type>
+                    <version>.*</version>
+                  </ignoreVersion>
+                </ignoreVersions>
+              </rule>
+              <rule>
+                <groupId>org.elasticsearch.*</groupId>
+                <ignoreVersions>
+                  <ignoreVersion>
+                    <type>regex</type>
+                    <version>.*</version>
+                  </ignoreVersion>
+                </ignoreVersions>
+              </rule>
+              <rule>
+                <groupId>org.flywaydb</groupId>
+                <ignoreVersions>
+                  <ignoreVersion>
+                    <type>regex</type>
+                    <version>.*</version>
+                  </ignoreVersion>
+                </ignoreVersions>
+              </rule>
+              <rule>
+                <groupId>org.hibernate.*</groupId>
+                <ignoreVersions>
+                  <ignoreVersion>
+                    <type>regex</type>
+                    <version>.*</version>
+                  </ignoreVersion>
+                </ignoreVersions>
+              </rule>
+              <rule>
+                <groupId>org.infinispan.*</groupId>
                 <ignoreVersions>
                   <ignoreVersion>
                     <type>regex</type>
