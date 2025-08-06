@@ -249,6 +249,15 @@
                 </ignoreVersions>
               </rule>
               <rule>
+                <groupId>org.awaitility</groupId>
+                <ignoreVersions>
+                  <ignoreVersion>
+                    <type>regex</type>
+                    <version>.*</version>
+                  </ignoreVersion>
+                </ignoreVersions>
+              </rule>
+              <rule>
                 <groupId>org.eclipse.*</groupId>
                 <ignoreVersions>
                   <ignoreVersion>
@@ -277,6 +286,24 @@
               </rule>
               <rule>
                 <groupId>org.hibernate.*</groupId>
+                <ignoreVersions>
+                  <ignoreVersion>
+                    <type>regex</type>
+                    <version>.*</version>
+                  </ignoreVersion>
+                </ignoreVersions>
+              </rule>
+              <rule>
+                <groupId>org.hsqldb</groupId>
+                <ignoreVersions>
+                  <ignoreVersion>
+                    <type>regex</type>
+                    <version>.*</version>
+                  </ignoreVersion>
+                </ignoreVersions>
+              </rule>
+              <rule>
+                <groupId>org.htmlunit</groupId>
                 <ignoreVersions>
                   <ignoreVersion>
                     <type>regex</type>
@@ -340,6 +367,15 @@
               </rule>
               <rule>
                 <groupId>org.seleniumhq.*</groupId>
+                <ignoreVersions>
+                  <ignoreVersion>
+                    <type>regex</type>
+                    <version>.*</version>
+                  </ignoreVersion>
+                </ignoreVersions>
+              </rule>
+              <rule>
+                <groupId>org.xerial</groupId>
                 <ignoreVersions>
                   <ignoreVersion>
                     <type>regex</type>
