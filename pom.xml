@@ -285,7 +285,61 @@
                 </ignoreVersions>
               </rule>
               <rule>
-                <groupId>org.infinispan.*</groupId>
+                <groupId>org.infinispan</groupId>
+                <ignoreVersions>
+                  <ignoreVersion>
+                    <type>regex</type>
+                    <version>.*</version>
+                  </ignoreVersion>
+                </ignoreVersions>
+              </rule>
+              <rule>
+                <groupId>org.jetbrains.*</groupId>
+                <ignoreVersions>
+                  <ignoreVersion>
+                    <type>regex</type>
+                    <version>.*</version>
+                  </ignoreVersion>
+                </ignoreVersions>
+              </rule>
+              <rule>
+                <groupId>org.jooq</groupId>
+                <ignoreVersions>
+                  <ignoreVersion>
+                    <type>regex</type>
+                    <version>.*</version>
+                  </ignoreVersion>
+                </ignoreVersions>
+              </rule>
+              <rule>
+                <groupId>org.junit.*</groupId>
+                <ignoreVersions>
+                  <ignoreVersion>
+                    <type>regex</type>
+                    <version>.*</version>
+                  </ignoreVersion>
+                </ignoreVersions>
+              </rule>
+              <rule>
+                <groupId>org.liquibase</groupId>
+                <ignoreVersions>
+                  <ignoreVersion>
+                    <type>regex</type>
+                    <version>.*</version>
+                  </ignoreVersion>
+                </ignoreVersions>
+              </rule>
+              <rule>
+                <groupId>org.mockito</groupId>
+                <ignoreVersions>
+                  <ignoreVersion>
+                    <type>regex</type>
+                    <version>.*</version>
+                  </ignoreVersion>
+                </ignoreVersions>
+              </rule>
+              <rule>
+                <groupId>org.seleniumhq.*</groupId>
                 <ignoreVersions>
                   <ignoreVersion>
                     <type>regex</type>
