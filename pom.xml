@@ -179,25 +179,37 @@
               <rule>
                 <groupId>biz.*</groupId>
                 <ignoreVersions>
-                  <ignoreVersion type="regex">.*</ignoreVersion>
+                  <ignoreVersion>
+                    <type>regex</type>
+                    <version>.*</version>
+                  </ignoreVersion>
                 </ignoreVersions>
               </rule>
               <rule>
                 <groupId>co.*</groupId>
                 <ignoreVersions>
-                  <ignoreVersion type="regex">.*</ignoreVersion>
+                  <ignoreVersion>
+                    <type>regex</type>
+                    <version>.*</version>
+                  </ignoreVersion>
                 </ignoreVersions>
               </rule>
               <rule>
                 <groupId>com.*</groupId>
                 <ignoreVersions>
-                  <ignoreVersion type="regex">.*</ignoreVersion>
+                  <ignoreVersion>
+                    <type>regex</type>
+                    <version>.*</version>
+                  </ignoreVersion>
                 </ignoreVersions>
               </rule>
               <rule>
                 <groupId>io.*</groupId>
                 <ignoreVersions>
-                  <ignoreVersion type="regex">.*</ignoreVersion>
+                  <ignoreVersion>
+                    <type>regex</type>
+                    <version>.*</version>
+                  </ignoreVersion>
                 </ignoreVersions>
               </rule>
             </rules>
