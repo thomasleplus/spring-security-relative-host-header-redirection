@@ -12,51 +12,46 @@ import org.springframework.context.annotation.Bean;
 import org.springframework.http.client.HttpComponentsClientHttpRequestFactory;
 import org.springframework.web.client.RestTemplate;
 
-/**
- * Tests the RhhrApplication.
- */
+/** Tests the RhhrApplication. */
 @SpringBootTest(webEnvironment = WebEnvironment.DEFINED_PORT)
 public class RhhrApplicationTests {
 
-    /**
-     * The default constructor.
-     */
-    public RhhrApplicationTests() {
-        super();
-    }
+  /** The default constructor. */
+  public RhhrApplicationTests() {
+    super();
+  }
 
-    /**
-     * The rest template.
-     */
-    @Autowired
-    private TestRestTemplate restTemplate;
+  /** The rest template. */
+  @Autowired private TestRestTemplate restTemplate;
 
-    /**
-     * Configures the rest template.
-     *
-     * @return the configured rest template.
-     */
-    @Bean
-    public RestTemplate restTemplate() {
-        final RestTemplate restTemplate = new RestTemplate();
-        final HttpComponentsClientHttpRequestFactory factory =
-                new HttpComponentsClientHttpRequestFactory();
-        factory.setHttpClient(HttpClientBuilder.create()
-                .disableRedirectHandling().build());
-        restTemplate.setRequestFactory(factory);
-        return restTemplate;
-    }
+  /**
+   * Configures the rest template.
+   *
+   * @return the configured rest template.
+   */
+  @Bean
+  public RestTemplate restTemplate() {
+    final RestTemplate restTemplate = new RestTemplate();
+    final HttpComponentsClientHttpRequestFactory factory =
+        new HttpComponentsClientHttpRequestFactory();
+    factory.setHttpClient(HttpClientBuilder.create().disableRedirectHandling().build());
+    restTemplate.setRequestFactory(factory);
+    return restTemplate;
+  }
 
-    /**
-     * Tests the redirection.
-     *
-     * @throws Exception if the test fails.
-     */
-    @Test
-    public void testRedirection() throws Exception {
-        assertEquals("/login", restTemplate
-                .getForEntity("http://localhost:8080/", String.class)
-                .getHeaders().getLocation().toString());
-    }
-
+  /**
+   * Tests the redirection.
+   *
+   * @throws Exception if the test fails.
+   */
+  @Test
+  public void testRedirection() throws Exception {
+    assertEquals(
+        "/login",
+        restTemplate
+            .getForEntity("http://localhost:8080/", String.class)
+            .getHeaders()
+            .getLocation()
+            .toString());
+  }
 }
