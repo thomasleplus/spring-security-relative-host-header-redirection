@@ -100,7 +100,7 @@ maven-check-versions:
 maven:
   stage: build
   image:
-    name: maven:3-eclipse-temurin-21-alpine
+    name: maven:3-eclipse-temurin-25-alpine
     entrypoint:
       - "" # Entrypoint is overridden by GitLab anyway
   cache:
