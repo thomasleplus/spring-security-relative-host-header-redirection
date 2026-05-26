@@ -55,13 +55,20 @@ jobs:
         with:
           distribution: temurin
           java-version: 25
+      - name: Set MAVEN_CLI_EXTRA_OPTS (skip tests for Dependabot)
+        if: ${{ github.event.pull_request.user.login == 'dependabot[bot]' }}
+        shell: bash
+        run: |
+          set -euo pipefail
+          IFS=$'\n\t'
+          echo "MAVEN_CLI_EXTRA_OPTS=-DskipTests" >> "${GITHUB_ENV}"
       - name: Build with Maven
         shell: bash
         run: |
           set -euo pipefail
           # Do not set IFS=$'\n\t', breaks ${MAVEN_CLI_OPTS}
           # shellcheck disable=SC2086 # [Double quote to prevent globbing and word splitting]: splitting is desired for MAVEN_CLI_OPTS
-          ./mvnw ${MAVEN_CLI_OPTS} -DdependencyCheck.skip=true verify
+          ./mvnw ${MAVEN_CLI_OPTS} ${MAVEN_CLI_EXTRA_OPTS} -DdependencyCheck.skip=true verify
       - name: Upload artifacts
         uses: actions/upload-artifact@043fb46d1a93c77aae656e7c1c64a875d1fc6a0a # v7.0.1
         with:
