@@ -66,8 +66,9 @@ jobs:
           restore-keys: |
             ${{ runner.os }}-maven-
       - name: Set MAVEN_CLI_EXTRA_OPTS (skip tests for Dependabot)
-        # zizmor: ignore[bot-conditions] no risk in this case
-        if: ${{ github.actor == 'dependabot[bot]' || github.event.pull_request.user.login == 'dependabot[bot]' }}
+        # Condition only skips tests, grants no privileges, so a spoofed actor
+        # poses no risk here.
+        if: ${{ github.actor == 'dependabot[bot]' || github.event.pull_request.user.login == 'dependabot[bot]' }} # zizmor: ignore[bot-conditions]
         shell: bash
         run: |
           set -euo pipefail
