@@ -55,6 +55,7 @@ jobs:
         with:
           distribution: temurin
           java-version: 25
+          cache: maven  
       - name: Set MAVEN_CLI_EXTRA_OPTS (skip tests for Dependabot)
         # zizmor: ignore[bot-conditions] no risk in this case
         if: ${{ github.actor == 'dependabot[bot]' || github.event.pull_request.user.login == 'dependabot[bot]' }}
