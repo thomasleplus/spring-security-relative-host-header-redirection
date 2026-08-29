@@ -27,6 +27,8 @@ public class SecurityConfig extends AbstractHttpConfigurer<SecurityConfig, HttpS
   public SecurityFilterChain filterChain(HttpSecurity http) throws Exception {
     final LoginUrlAuthenticationEntryPoint entryPoint =
         new LoginUrlAuthenticationEntryPoint("/login");
+    // Emit relative redirects (path only) instead of absolute URLs built from
+    // the request's Host header -- the behaviour this project demonstrates.
     entryPoint.setFavorRelativeUris(true);
     http.authorizeHttpRequests(authz -> authz.anyRequest().authenticated())
         .formLogin(formLogin -> formLogin.loginPage("/login").permitAll())
